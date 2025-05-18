@@ -1,0 +1,75 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantillas Educativas</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Stripe JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header con logo -->
+  <header class="flex items-center p-4 bg-white shadow-md">
+    <a href="#" class="flex items-center">
+      <img src="logo.png" alt="Logo" class="h-10 w-auto mr-3" />
+      <span class="text-2xl font-bold">Plantillas Educativas</span>
+    </a>
+  </header>
+
+  <!-- Contenedor principal -->
+  <main class="p-8 max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6">Catálogo de Plantillas</h1>
+    <div id="templates" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+  </main>
+
+  <script>
+    // Configuración de Stripe (reemplaza con tu propia clave pública)
+    const stripe = Stripe('pk_test_TU_CLAVE_PUBLICA');
+
+    // Datos de tus plantillas
+    const templates = [
+      {
+        title: 'Ficha de Álgebra I',
+        description: 'Ejercicios de práctica de álgebra para nivel secundaria.',
+        price: 5.00,
+        priceId: 'price_1ABCxyz',
+        image: 'previews/algebra-1.png'
+      },
+      // Añade más objetos de plantilla aquí
+    ];
+
+    const container = document.getElementById('templates');
+    templates.forEach(t => {
+      const card = document.createElement('div');
+      card.className = 'bg-white p-4 rounded-lg shadow';
+      card.innerHTML = `
+        <img src="${t.image}" alt="${t.title}" class="mb-4 w-full h-48 object-cover rounded" />
+        <h2 class="text-xl font-semibold mb-2">${t.title}</h2>
+        <p class="mb-4">${t.description}</p>
+        <span class="font-bold block mb-4">USD ${t.price.toFixed(2)}</span>
+        <button class="buy-button px-4 py-2 bg-blue-600 text-white rounded">Comprar</button>
+      `;
+      card.querySelector('.buy-button').addEventListener('click', () => {
+        stripe.redirectToCheckout({
+          lineItems: [{ price: t.priceId, quantity: 1 }],
+          mode: 'payment',
+          successUrl: window.location.href + '?success=true',
+          cancelUrl: window.location.href + '?canceled=true'
+        });
+      });
+      container.appendChild(card);
+    });
+
+    // Manejo de query params para mostrar mensaje de estado
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success')) {
+      alert('¡Pago realizado con éxito!');
+    } else if (params.get('canceled')) {
+      alert('Pago cancelado.');
+    }
+  </script>
+</body>
+</html>
