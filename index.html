@@ -1,75 +1,184 @@
----
-layout: null
----
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plantillas Educativas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FichasInteractivas.com</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --verde-oscuro: #14532d;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar, footer {
+      background-color: var(--verde-oscuro);
+    }
+    .navbar-brand, .nav-link, footer p {
+      color: white !important;
+    }
+    .hero {
+      background-color: #e0f2f1;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .card:hover {
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      transform: scale(1.02);
+      transition: 0.3s;
+    }
+  </style>
 </head>
-<body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-    <div class="container">
-      <a class="navbar-brand" href="#">📘 Plantillas Educativas</a>
-    </div>
-  </nav>
+<body>
 
+<nav class="navbar navbar-expand-lg">
   <div class="container">
-    <h1 class="mb-4 text-center">Plantillas Gratuitas</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-
-      <!-- Álgebra -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://i.imgur.com/64uQFCn.png" class="card-img-top" alt="Álgebra I">
-          <div class="card-body">
-            <h5 class="card-title">Ficha de Álgebra I</h5>
-            <p class="card-text">Ejercicios imprimibles sobre ecuaciones, polinomios y más.</p>
-          </div>
-          <div class="card-footer text-end">
-            <a href="https://www.liveworksheets.com/worksheets/es/Matem%C3%A1ticas/%C3%81lgebra/Repaso_de_%C3%A1lgebra_dl1229359dx" class="btn btn-outline-primary" target="_blank">Ver plantilla</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Geometría -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://i.imgur.com/1XgfsQJ.png" class="card-img-top" alt="Geometría 2D">
-          <div class="card-body">
-            <h5 class="card-title">Geometría 2D</h5>
-            <p class="card-text">Actividades para trabajar perímetro, área y figuras planas.</p>
-          </div>
-          <div class="card-footer text-end">
-            <a href="https://www.orientacionandujar.es/2019/06/14/actividades-de-geometria-para-imprimir/" class="btn btn-outline-primary" target="_blank">Ver plantilla</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Biología Celular -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://i.imgur.com/LqOdcuW.png" class="card-img-top" alt="Biología Celular">
-          <div class="card-body">
-            <h5 class="card-title">Biología Celular</h5>
-            <p class="card-text">Ficha ilustrativa de organelos y funciones celulares.</p>
-          </div>
-          <div class="card-footer text-end">
-            <a href="https://es.liveworksheets.com/worksheets/es/Ciencias_naturales/La_c%C3%A9lula/La_c%C3%A9lula_mf55127rp" class="btn btn-outline-primary" target="_blank">Ver plantilla</a>
-          </div>
-        </div>
-      </div>
-
+    <a class="navbar-brand fw-bold" href="#">FichasInteractivas.com</a>
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#buscar">Buscar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#crear">Crear</a></li>
+        <li class="nav-item"><a class="nav-link" href="#subir">Subir</a></li>
+        <li class="nav-item"><a class="nav-link" href="#categorias">Categorías</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">Ayuda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#login">Iniciar sesión</a></li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <footer class="text-center mt-5 mb-4 text-muted">
-    © 2025 Plantillas Educativas
-  </footer>
+<header class="hero">
+  <div class="container">
+    <h1 class="display-4">Fichas interactivas para aprender jugando</h1>
+    <p class="lead">Crea, comparte y descarga fichas educativas gratis para todos los niveles</p>
+    <a href="#buscar" class="btn btn-success btn-lg mt-3">Explorar fichas</a>
+  </div>
+</header>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<section class="container py-5" id="buscar">
+  <h2 class="mb-4 text-center">Buscar fichas</h2>
+  <input type="text" class="form-control mb-4" placeholder="Buscar por palabra clave, materia, nivel...">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://i.imgur.com/srH9hJL.png" class="card-img-top" alt="Ficha de matemáticas">
+        <div class="card-body">
+          <h5 class="card-title">Matemáticas Básicas</h5>
+          <p class="card-text">Ejercicios interactivos de sumas, restas y multiplicaciones.</p>
+          <a href="#" class="btn btn-outline-success">Ver ficha</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://i.imgur.com/2ftMG8Y.png" class="card-img-top" alt="Ficha de inglés">
+        <div class="card-body">
+          <h5 class="card-title">Inglés para niños</h5>
+          <p class="card-text">Colores, animales, objetos del aula con audio.</p>
+          <a href="#" class="btn btn-outline-success">Ver ficha</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://i.imgur.com/pgrE2fT.png" class="card-img-top" alt="Ficha de ciencias">
+        <div class="card-body">
+          <h5 class="card-title">Ciencias Naturales</h5>
+          <p class="card-text">Clasificación de animales y partes de la planta.</p>
+          <a href="#" class="btn btn-outline-success">Ver ficha</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5" id="crear">
+  <h2 class="mb-4 text-center">Crear una ficha</h2>
+  <p class="text-center">Arrastra y suelta tu PDF o imagen. Agrega campos interactivos fácilmente.</p>
+  <div class="text-center">
+    <button class="btn btn-success">Subir archivo</button>
+  </div>
+</section>
+
+<section class="container py-5" id="subir">
+  <h2 class="mb-4 text-center">Sube tu ficha al sitio</h2>
+  <form class="mx-auto" style="max-width: 500px;">
+    <input type="text" class="form-control mb-3" placeholder="Título de la ficha">
+    <input type="file" class="form-control mb-3">
+    <textarea class="form-control mb-3" placeholder="Descripción corta"></textarea>
+    <button class="btn btn-success w-100">Enviar ficha</button>
+  </form>
+</section>
+
+<section class="container py-5" id="categorias">
+  <h2 class="mb-4 text-center">Categorías educativas</h2>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <span class="badge bg-success fs-6 p-3">Matemáticas</span>
+    <span class="badge bg-success fs-6 p-3">Lenguaje</span>
+    <span class="badge bg-success fs-6 p-3">Ciencias</span>
+    <span class="badge bg-success fs-6 p-3">Inglés</span>
+    <span class="badge bg-success fs-6 p-3">Sociales</span>
+    <span class="badge bg-success fs-6 p-3">Preescolar</span>
+  </div>
+</section>
+
+<section class="container py-5" id="faq">
+  <h2 class="mb-4 text-center">Preguntas frecuentes</h2>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+          ¿Cómo creo una ficha interactiva?
+        </button>
+      </h2>
+      <div id="faq1" class="accordion-collapse collapse show">
+        <div class="accordion-body">Sube tu archivo y usa nuestras herramientas para añadir campos rellenables.</div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+          ¿Es gratis usar esta plataforma?
+        </button>
+      </h2>
+      <div id="faq2" class="accordion-collapse collapse">
+        <div class="accordion-body">Sí, puedes usar y compartir fichas libremente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5" id="contacto">
+  <h2 class="mb-4 text-center">Contacto</h2>
+  <form class="mx-auto" style="max-width: 500px;">
+    <input type="text" class="form-control mb-3" placeholder="Tu nombre">
+    <input type="email" class="form-control mb-3" placeholder="Correo electrónico">
+    <textarea class="form-control mb-3" placeholder="Mensaje"></textarea>
+    <button class="btn btn-success w-100">Enviar</button>
+  </form>
+</section>
+
+<section class="container py-5" id="login">
+  <h2 class="mb-4 text-center">Iniciar sesión / Registrarse</h2>
+  <form class="mx-auto" style="max-width: 400px;">
+    <input type="email" class="form-control mb-3" placeholder="Correo electrónico">
+    <input type="password" class="form-control mb-3" placeholder="Contraseña">
+    <button class="btn btn-success w-100">Entrar</button>
+    <p class="text-center mt-3">¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+  </form>
+</section>
+
+<footer class="py-4 mt-5 text-center">
+  <div class="container">
+    <p>&copy; 2025 FichasInteractivas.com - Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
