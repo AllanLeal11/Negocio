@@ -2,74 +2,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plantillas Educativas</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Stripe JS -->
-  <script src="https://js.stripe.com/v3/"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Plantillas Educativas Gratis</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Header con logo -->
-  <header class="flex items-center p-4 bg-white shadow-md">
-    <a href="#" class="flex items-center">
-      <img src="logo.png" alt="Logo" class="h-10 w-auto mr-3" />
-      <span class="text-2xl font-bold">Plantillas Educativas</span>
-    </a>
-  </header>
+<body class="bg-light">
+  <!-- Header -->
+  <nav class="navbar navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="logo.png" alt="Logo" width="40" height="40" class="me-2">
+        <span class="fs-4">Plantillas Educativas</span>
+      </a>
+    </div>
+  </nav>
 
-  <!-- Contenedor principal -->
-  <main class="p-8 max-w-4xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6">Catálogo de Plantillas</h1>
-    <div id="templates" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-  </main>
+  <!-- Main content -->
+  <div class="container py-5">
+    <h1 class="mb-4">Catálogo de Plantillas Educativas Gratis</h1>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-  <script>
-    // Configuración de Stripe (reemplaza con tu propia clave pública)
-    const stripe = Stripe('pk_test_TU_CLAVE_PUBLICA');
+      <!-- Template Card -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="previews/algebra-1.png" class="card-img-top" alt="Álgebra I">
+          <div class="card-body">
+            <h5 class="card-title">Ficha de Álgebra I</h5>
+            <p class="card-text">Ejercicios de práctica de álgebra: ecuaciones lineales y polinomios.</p>
+            <span class="badge bg-success">Gratis</span>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="templates/algebra-1.pdf" class="btn btn-primary w-100">Descargar</a>
+          </div>
+        </div>
+      </div>
 
-    // Datos de tus plantillas
-    const templates = [
-      {
-        title: 'Ficha de Álgebra I',
-        description: 'Ejercicios de práctica de álgebra para nivel secundaria.',
-        price: 5.00,
-        priceId: 'price_1ABCxyz',
-        image: 'previews/algebra-1.png'
-      },
-      // Añade más objetos de plantilla aquí
-    ];
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="previews/biologia-celular.png" class="card-img-top" alt="Biología Celular">
+          <div class="card-body">
+            <h5 class="card-title">Esquema de Biología Celular</h5>
+            <p class="card-text">Diagrama de mitosis y funciones celulares para secundaria.</p>
+            <span class="badge bg-success">Gratis</span>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="templates/biologia-celular.pdf" class="btn btn-primary w-100">Descargar</a>
+          </div>
+        </div>
+      </div>
 
-    const container = document.getElementById('templates');
-    templates.forEach(t => {
-      const card = document.createElement('div');
-      card.className = 'bg-white p-4 rounded-lg shadow';
-      card.innerHTML = `
-        <img src="${t.image}" alt="${t.title}" class="mb-4 w-full h-48 object-cover rounded" />
-        <h2 class="text-xl font-semibold mb-2">${t.title}</h2>
-        <p class="mb-4">${t.description}</p>
-        <span class="font-bold block mb-4">USD ${t.price.toFixed(2)}</span>
-        <button class="buy-button px-4 py-2 bg-blue-600 text-white rounded">Comprar</button>
-      `;
-      card.querySelector('.buy-button').addEventListener('click', () => {
-        stripe.redirectToCheckout({
-          lineItems: [{ price: t.priceId, quantity: 1 }],
-          mode: 'payment',
-          successUrl: window.location.href + '?success=true',
-          cancelUrl: window.location.href + '?canceled=true'
-        });
-      });
-      container.appendChild(card);
-    });
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="previews/calculo-derivadas.png" class="card-img-top" alt="Cálculo Derivadas">
+          <div class="card-body">
+            <h5 class="card-title">Guía de Derivadas</h5>
+            <p class="card-text">Resumen de reglas de derivación y ejemplos resueltos.</p>
+            <span class="badge bg-success">Gratis</span>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="templates/calculo-derivadas.pdf" class="btn btn-primary w-100">Descargar</a>
+          </div>
+        </div>
+      </div>
 
-    // Manejo de query params para mostrar mensaje de estado
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('success')) {
-      alert('¡Pago realizado con éxito!');
-    } else if (params.get('canceled')) {
-      alert('Pago cancelado.');
-    }
-  </script>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="previews/geometria-angulos.png" class="card-img-top" alt="Geometría Angulos">
+          <div class="card-body">
+            <h5 class="card-title">Ejercicios de Geometría</h5>
+            <p class="card-text">Problemas de ángulos y figuras geométricas nivel secundaria.</p>
+            <span class="badge bg-success">Gratis</span>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="templates/geometria-angulos.pdf" class="btn btn-primary w-100">Descargar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="previews/quimica-tabla-periodica.png" class="card-img-top" alt="Tabla Periódica">
+          <div class="card-body">
+            <h5 class="card-title">Tabla Periódica Interactiva</h5>
+            <p class="card-text">Plantilla imprimible de la tabla periódica con espacios para notas.</p>
+            <span class="badge bg-success">Gratis</span>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="templates/tabla-periodica.pdf" class="btn btn-primary w-100">Descargar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="previews/historia-timeline.png" class="card-img-top" alt="Línea de Tiempo">  
+          <div class="card-body">
+            <h5 class="card-title">Línea de Tiempo Histórica</h5>
+            <p class="card-text">Cronología de eventos principales de historia mundial.</p>
+            <span class="badge bg-success">Gratis</span>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="templates/timeline-historia.pdf" class="btn btn-primary w-100">Descargar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
